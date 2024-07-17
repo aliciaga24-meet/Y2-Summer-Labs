@@ -3,7 +3,6 @@ import random
 
 app = Flask(__name__)
 
-# Route for the home page
 @app.route('/home')
 def home():
     return render_template('home2.html')
@@ -12,15 +11,8 @@ def home():
 def fortune():
     fortunes = [
         "You will have a great day!",
-        "A surprise is waiting for you.",
-        "Today is your lucky day!",
-        "Happiness will find you.",
-        "Be cautious today.",
-        "You will meet someone special.",
-        "An opportunity will arise.",
-        "Expect the unexpected.",
-        "Good news is coming your way.",
-        "You will achieve your goals."
+        "the day will come",
+        "you'll find money on the floor today"
     ]
     chosen_fortune = random.choice(fortunes)
     return render_template('fortune.html', fortune=chosen_fortune)
@@ -28,16 +20,11 @@ def fortune():
 @app.route('/indecisive')
 def indecisive():
     fortunes = [
-        "You will have a great day!",
-        "A surprise is waiting for you.",
+        "you will be great!",
         "Today is your lucky day!",
-        "Happiness will find you.",
+        "find a new show to watch",
         "Be cautious today.",
         "You will meet someone special.",
-        "An opportunity will arise.",
-        "Expect the unexpected.",
-        "Good news is coming your way.",
-        "You will achieve your goals."
     ]
     chosen_fortunes = random.sample(fortunes, 3)
     return render_template('indecisive.html', fortunes=chosen_fortunes)
@@ -52,12 +39,13 @@ def response():
         "Yes",
         "No",
         "Maybe",
-        "Only on Tuesdays",
-        "I think so, but one can never be sure",
-        "Why are you asking me?"
+        "nah uh",
+        "I think so, but one can never be sure",,
+        "bruh",
+        "dont give up..."
     ]
     chosen_response = random.choice(responses)
     return render_template('response.html', response=chosen_response)
-# Run the Flask app
+
 if __name__ == '__main__':
     app.run(debug=True)
