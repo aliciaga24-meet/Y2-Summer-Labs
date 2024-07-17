@@ -17,23 +17,5 @@ def fortune():
     chosen_fortune = random.choice(fortunes)
     return render_template('fortune.html', fortune=chosen_fortune)
 
-@app.route('/magic')
-def magic():
-    return render_template('magic.html')
-
-@app.route('/response')
-def response():
-    responses = [
-        "Yes",
-        "No",
-        "Maybe",
-        "nah uh",
-        "I think so, but one can never be sure",
-        "bruh",
-        "dont give up..."
-    ]
-    chosen_response = random.choice(responses)
-    return render_template('response.html', response=chosen_response)
-
 if __name__ == '__main__':
     app.run(debug=True)
