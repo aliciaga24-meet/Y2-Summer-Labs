@@ -17,18 +17,6 @@ def fortune():
     chosen_fortune = random.choice(fortunes)
     return render_template('fortune.html', fortune=chosen_fortune)
 
-@app.route('/indecisive')
-def indecisive():
-    fortunes = [
-        "you will be great!",
-        "Today is your lucky day!",
-        "find a new show to watch",
-        "Be cautious today.",
-        "You will meet someone special.",
-    ]
-    chosen_fortunes = random.sample(fortunes, 3)
-    return render_template('indecisive.html', fortunes=chosen_fortunes)
-
 @app.route('/magic')
 def magic():
     return render_template('magic.html')
