@@ -40,7 +40,7 @@ def response():
         "No",
         "Maybe",
         "nah uh",
-        "I think so, but one can never be sure",,
+        "I think so, but one can never be sure",
         "bruh",
         "dont give up..."
     ]
