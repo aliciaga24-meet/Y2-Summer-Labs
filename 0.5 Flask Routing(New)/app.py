@@ -54,7 +54,7 @@ def space3():
        <html>
     <body>
         <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyL9aypgOluHxwS9Hv-ddu9iL2AI093tH9Cw&s'>
-              <h3> <a href='/space 1'> go back </a> </h3>
+              <h3> <a href='/space1'> go back </a> </h3>
                <br>
               <h3> <a href='/space2'> yippiee </a> </h3>
 
