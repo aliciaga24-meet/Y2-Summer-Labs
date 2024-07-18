@@ -12,8 +12,11 @@ def home():
     <body>
         <h1>Welcome to the gallery</h1>
         <h2> here we have pics of food pets and space!! </h2>
+        <br>
         <a href='/food1'> go to the first food photo </a>
+        <br>
         <a href='/pet2'> go pet a bear </a>
+        <br>
         <a href='/space1'> spacee </a>
 
     </body>
@@ -24,8 +27,9 @@ def space1():
        <html>
     <body>
         <img src='https://i0.wp.com/thelumberjack.org/wp-content/uploads/2019/04/black-hole.jpg?fit=1601%2C1175&ssl=1'>
-               <a href='/space 2'> fly away </a>
+               <br>
                <a href='/space3'> flyyy!! </a>
+               <br>
                 <a href='/home'> go home </a>
     </body>
     </html>
@@ -38,6 +42,7 @@ def space2():
     <body>
         <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGdJ8gx6sLyUQTfftGhzGz8nREDc43kQBAeg&s'>
                <a href='/space1'> go back </a>
+               <br>
                <a href='/space3'> flyyy!! </a>
 
     </body>
@@ -50,6 +55,7 @@ def space3():
     <body>
         <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyL9aypgOluHxwS9Hv-ddu9iL2AI093tH9Cw&s'>
                <a href='/space 1'> go back </a>
+               <br>
                <a href='/space2'> yippiee </a>
 
     </body>
@@ -66,7 +72,9 @@ def pet2():
     <body>
         <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGKBIF91ijnCDgygFNPdWPmqU9ypVTFvEcUQ&s'>
                <a href='/pet1'> rawr </a>
+               <br>
                <a href='/pet3'> rawrrr!! </a>
+               <br>
                 <a href='/home'> go home </a>
     </body>
     </html>
@@ -78,6 +86,7 @@ def pet1():
        <html>
     <body>
         <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx1HbpgopNZHrOaEGPHx4FKZIvlnD8RjgUIQ&s'>
+        <br>
                <a href='/pet2'> moew </a>
 
     </body>
