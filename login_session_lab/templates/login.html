@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <style>
+        body{
+
+            background-color: lightgoldenrodyellow;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Fortune Teller</title>
+</head>
+<body>
+    <h1>Fortune Teller Login</h1>
+    <form action="/login" method="POST">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div>
+            <label for="birth-month">Birth Month:</label>
+            <input type="text" id="birth-month" name="birth_month" required>
+        </div>
+        
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
