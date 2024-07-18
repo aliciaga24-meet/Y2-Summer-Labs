@@ -22,8 +22,7 @@ def fortune(birth_month):
         "be happy.",
         "work hard.",
         "be who you are.",
-        "live love lught",
-        "Adventure awaits you this month.",
+        "live love lught"
         "yippiee ",
         "Love is in the air."
     ]
