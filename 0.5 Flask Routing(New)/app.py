@@ -13,11 +13,11 @@ def home():
         <h1>Welcome to the gallery</h1>
         <h2> here we have pics of food pets and space!! </h2>
         <br>
-        <a href='/food1'> go to the first food photo </a>
+       <h3> <a href='/food1'> go to the first food photo </a></h3>
         <br>
-        <a href='/pet2'> go pet a bear </a>
+       <h3> <a href='/pet2'> go pet a bear </a></h3>
         <br>
-        <a href='/space1'> spacee </a>
+     <h3><a href='/space1'> spacee </a></h3>
 
     </body>
     </html>'''
@@ -28,9 +28,9 @@ def space1():
     <body>
         <img src='https://i0.wp.com/thelumberjack.org/wp-content/uploads/2019/04/black-hole.jpg?fit=1601%2C1175&ssl=1'>
                <br>
-               <a href='/space3'> flyyy!! </a>
+             <h3>  <a href='/space3'> flyyy!! </a> </h3>
                <br>
-                <a href='/home'> go home </a>
+               <h3> <a href='/home'> go home </a></h3>
     </body>
     </html>
     '''
@@ -41,9 +41,9 @@ def space2():
        <html>
     <body>
         <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGdJ8gx6sLyUQTfftGhzGz8nREDc43kQBAeg&s'>
-               <a href='/space1'> go back </a>
+              <h3> <a href='/space1'> go back </a></h3>
                <br>
-               <a href='/space3'> flyyy!! </a>
+              <h3> <a href='/space3'> flyyy!! </a> </h3>
 
     </body>
     </html>
@@ -54,9 +54,9 @@ def space3():
        <html>
     <body>
         <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyL9aypgOluHxwS9Hv-ddu9iL2AI093tH9Cw&s'>
-               <a href='/space 1'> go back </a>
+              <h3> <a href='/space 1'> go back </a> </h3>
                <br>
-               <a href='/space2'> yippiee </a>
+              <h3> <a href='/space2'> yippiee </a> </h3>
 
     </body>
     </html>
@@ -71,11 +71,11 @@ def pet2():
        <html>
     <body>
         <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGKBIF91ijnCDgygFNPdWPmqU9ypVTFvEcUQ&s'>
-               <a href='/pet1'> rawr </a>
+              <h3> <a href='/pet1'> rawr </a> </h3>
                <br>
-               <a href='/pet3'> rawrrr!! </a>
+              <h3> <a href='/pet3'> rawrrr!! </a></h3>
                <br>
-                <a href='/home'> go home </a>
+               <h3> <a href='/home'> go home </a> </h3>
     </body>
     </html>
     '''
@@ -87,7 +87,7 @@ def pet1():
     <body>
         <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx1HbpgopNZHrOaEGPHx4FKZIvlnD8RjgUIQ&s'>
         <br>
-               <a href='/pet2'> moew </a>
+              <h3> <a href='/pet2'> moew </a> </h3>
 
     </body>
     </html>
@@ -99,7 +99,7 @@ def pet3():
        <html>
     <body>
         <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ30D3kcGzamody3DqXED0XMix44Tm_F1Uyug&s'>
-               <a href='/pet2'> moew </a>
+             <h3>  <a href='/pet2'> moew </a> </h3>
 
     </body>
     </html>
@@ -121,7 +121,7 @@ def food2():
     return '''
      <html>
     <body>
-         <a href='/food3'> go eat more </a>
+       <h3>  <a href='/food3'> go eat more </a> </h3>
         <img width = "1000px" src="https://www.tripsavvy.com/thmb/2B5_4ks3SK2l_ehZj9ZY6pXJx9w=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5033415296_4d025683af_o-5b953ba946e0fb00251ecdb5.jpg">      
     '''
 
@@ -130,7 +130,7 @@ def food3():
     return '''
      <html>
     <body>
-        <a href='/home'> go home </a>
+      <h3>  <a href='/home'> go home </a> </h3>
         <img width = "1000px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNbIX0KsvabL2V-X8S8z0W7ibZ3zQ6nahJKg&s">      
     '''
 
