@@ -12,13 +12,13 @@ firebaseConfig = {
   "storageBucket": "auth-lab-aea23.appspot.com",
   "messagingSenderId": "628390945462",
   "appId": "1:628390945462:web:7cc39f472828cd1e73fc17",
-  "databaseURL":""
+  "databaseURL":"https://auth-lab-aea23-default-rtdb.europe-west1.firebasedatabase.app/"
 
 }
 
 firebase = pyrebase.initialize_app(firebaseConfig) 
 auth = firebase.auth()
-
+db =firebase.database()
 
 
 @app.route('/', methods=['GET','POST'])
@@ -30,13 +30,20 @@ def signup():
     password = request.form['password']
     full_name = request.form['full_name']
     username = request.form['username']
-    try:
-        session['user'] = auth.create_user_with_email_and_password(email, password)
-        session["quotes"] = []
-        return redirect(url_for('home'))
-    except:
-        error_msg = "Womp it failed. Try again"
-        return render_template("signup.html",error=error_msg)
+    #try:
+    session['user'] = auth.create_user_with_email_and_password(email, password)
+    user = {
+
+    'email': email,
+    'password': password,
+    'full_name': full_name,
+    'username': username
+    }
+    db.child("Users").child(session['user']['localId']).set(user)
+    return redirect(url_for('home'))
+    #except:
+    #    error_msg = "Womp it failed. Try again"
+    #    return render_template("signup.html",error=error_msg)
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
@@ -57,13 +64,15 @@ def signin():
 @app.route('/home', methods=['GET', 'POST'])
 def home():
   if request.method == 'POST':
-      quote = request.form['quote']  
-      if 'quotes' not in session:
-          session['quotes'] = []  
-        
-      session['quotes'].append(quote)
-      session.modified = True
-      return redirect(url_for('thanks'))  
+    quote = request.form['quote']
+    author = request.form['author']
+    quotes = {
+        'text':quote ,
+        'said_by_who': author,
+        'uid': session['user']["localId"]
+    }
+    db.child("quotes").push(quotes)
+    return redirect(url_for('thanks')) 
   return render_template('home.html')
 
 @app.route('/thanks')
@@ -72,8 +81,7 @@ def thanks():
 
 @app.route('/display')
 def display():
-  massage = session['quotes'] 
-  return render_template('display.html',massage = massage)
+  return render_template('display.html',massage = db.child("quotes").get().val())
 
 def signout():
     session["user"] = None
