@@ -2,7 +2,9 @@ from flask import Flask, render_template ,request, redirect, url_for
 from flask import session
 import pyrebase
 
-app = Flask(__name__)
+app = Flask(__name__,
+    template_folder ="templates",
+    static_folder='static')
 app.config["SECRET_KEY"] = "MMM"
 
 firebaseConfig = {
@@ -65,7 +67,7 @@ def signin():
 def home():
   if request.method == 'POST':
     quote = request.form['quote']
-    author = request.form['author']
+    author = request.form['']
     quotes = {
         'text':quote ,
         'said_by_who': author,

@@ -1,0 +1,29 @@
+body {
+    font-family: 'Roboto', sans-serif; 
+    background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcpq252Xl5j-cOJvpax88MP9mATfTTdhzICg&s");
+    background-size: cover;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+}
+
+.signup-button {
+    background-color:lightgrey;
+    color: blueviolet;
+    border: none;
+    padding: 24px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin-top: 25px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+

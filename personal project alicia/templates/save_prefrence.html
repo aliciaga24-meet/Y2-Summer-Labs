@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!</title>
+     <link rel="stylesheet" href="../static/save_prefrence.css">
+</head>
+<body>
+    <h2>Welcome! What are your preferences for your pet?</h2>
+    <form action="/save_preferences" method="POST">
+      <h3>  <label for="pet_type"> What pet do you want?</label></h3>
+        <select id="pets" name="pets">
+        <option value="cat">cat</option>
+        <option value="dog">dog</option>
+        <option value="rabbit">rabbit</option>
+        <option value="bear">bear</option>
+</select>
+        <br>
+        <h3><label for="age_range">Age range?</label><br></h3>
+       <select id="age" name="age">
+        <option value="1-10">1-10(in pet years)</option>
+        <option value="10-30">10-30(in pet years)</option>
+        <option value="30+">30+(in pet years)</option>
+        </select>
+       <h3> <label for="area">Area?</label><br></h3>
+        <select id="place" name="place">
+        <option value="israel">israel</option>
+        <option value="america">america</option>
+        <option value="germany">germany</option>
+        <option value="russia">russia</option>
+        </select>
+        <input type="submit" value="Save Preferences">
+    </form>
+
+
+    <p><a href="/signout">Sign out</a></p>
+</body>
+</html>
