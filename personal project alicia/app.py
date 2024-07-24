@@ -21,6 +21,14 @@ firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
 db =firebase.database()
 
+animal1 = { "type": "cat", "name" : "kitty", "age": "1","place": "russia"}
+animal2 = { "type": "dog", "name" : "halo", "age": "2","place": "israel"}
+animal3 = { "type": "rabbit", "name" : "dan", "age": "7","place": "israel"}
+animal5 = { "type": "dog", "name" : "abdalla", "age": "4","place": "israel"}
+animal6 = { "type": "cat", "name" : "bae", "age": "52","place": "israel"}
+animal7 = { "type": "rabbit", "name" : "pookie", "age": "10","place": "russia"}
+animal8 = { "type": "cat", "name" : "cookie", "age": "4","place": "russia"}
+animal9 = { "type": "cat", "name" : "banana", "age": "99","place": "russia"}
 
 @app.route('/', methods=['GET','POST'])
 def opening():
@@ -41,6 +49,14 @@ def signup():
     'uid':uid
     }
 
+    db.child("animals").push(animal1)
+    db.child("animals").push(animal2)
+    db.child("animals").push(animal3)
+    db.child("animals").push(animal5)
+    db.child("animals").push(animal6)
+    db.child("animals").push(animal7)
+    db.child("animals").push(animal8)
+    db.child("animals").push(animal9)
     session['user'] = user
     
     db.child("Users").child(uid).set(info)
@@ -90,24 +106,39 @@ def signout():
 
 @app.route('/home', methods=['POST', 'GET'])
 def home():
-  if request.method == "GET":
-    animal = db.child('animals').get().val().values()
-    prefer = db.child("Users").child(session['user']["localId"]).child("preferences").get().val()
-    animals = []
-    places = []
-    for i in list(animal):    
-        if prefer['pet_type'] == i['type'] and prefer['place'] == i['place']:
-          animals.append(i)
-          places.append(i)
+  animal = db.child('animals').get().val()
+  prefer = db.child("Users").child(session['user']["localId"]).child("preferences").get().val()
+  animals = []
+  places = []
+
+  for id, i in animal.items():    
+      if prefer['pet_type'] == i['type'] and prefer['place'] == i['place']:
+        animals.append({"animal":i, "id":id})
+        places.append({"animal":i, "id":id})
+  if request.method == "POST":
+    if request.args.get("id") is not None:
+      id = request.args.get("id")
+      session["animal_adopted"] = db.child("animals").child(id).get().val()
+      db.child("animals").child(id).remove()
+      return redirect(url_for("adopt"))
     else:
-      selected = request.form['adopt']
+      name = request.form["name"]
+      age = int(request.form["age"])
+      place = request.form['place']
+      pets = request.form["pets"]
+      db.child("animals").push({
+        "name": name,
+        "age": age,
+        "place": place,
+        "type": pets
+        })
 
+  return render_template('home.html',animal=animals)
 
-
-  return render_template('home.html',animal=animals,place=places)
-
-#@app.route('/adopted', methods=['POST','GET'])
-#def adopted():
+@app.route('/adopt', methods=['POST','GET'])
+def adopt():
+  if request.method == "GET":
+      return render_template("adopted.html", animal=session["animal_adopted"])
 
 
 if __name__ == '__main__':
