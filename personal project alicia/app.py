@@ -21,6 +21,7 @@ firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
 db =firebase.database()
 
+
 @app.route('/', methods=['GET','POST'])
 def opening():
   if request.method == 'GET':
@@ -49,7 +50,6 @@ def signup():
     return render_template("signup.html")
 
     
-
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
   if request.method == 'POST':
@@ -65,24 +65,32 @@ def signin():
 def save_preferences():
     if request.method == 'POST':
       if 'user' in session:
-        pet_type = request.form['pet_type']
-        age_range = request.form['age_range']
-        area = request.form['area']       
+        pets = request.form['pets']
+        age = request.form['age']
+        place = request.form['place']       
         preferences = {
-            'pet_type': pet_type,
-            'age_range': age_range,
-            'area': area
+            'pet_type': pets,
+            'age': age,
+            'place': place
         }        
-        db.child("Users").child(session['user']).child("preferences").set(preferences)
-        print("hatslahah hegaat lyaad")
+        db.child("Users").child(session['user']["localId"]).child("preferences").set(preferences)
+        return redirect(url_for('home'))
       else:
         return redirect(url_for('signin'))
-
     return render_template('save_prefrence.html')
+
 @app.route('/signout')
 def signout():
     session["user"] = None
     return redirect(url_for('opening'))
+
+@app.route('/home', methods=['POST', 'GET'])
+def home():
+  animal = db.child('animals').get().val().values()
+  if request == 'POST':
+    prefer = db.child("Users").child(session['user']["localId"]).child("preferences").get().val()
+    preferred_location = preferences.get('place')
+  return render_template('home.html',animal=animal)
 
 if __name__ == '__main__':
   app.run(debug=True)
