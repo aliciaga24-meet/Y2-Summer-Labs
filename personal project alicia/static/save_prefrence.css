@@ -1,41 +1,36 @@
+/* save_preference.css */
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f8c2ee; /* Soft pink background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+  color: #333; /* Dark text for contrast */
 }
 
-h1 {
-  color: #c95192; /* Darker pink for heading */
+h2 {
+  color: #c95192; /* Darker pink for headings */
 }
 
 form {
-  background-color: #fff;
+  background-color: #fff; /* White form for contrast */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   width: 300px; /* Adjust width as needed */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 0 auto; /* Center the form */
 }
 
 label {
-  display: block;
-  margin-bottom: 5px;
-  text-align: center; /* Center the labels */
+  font-weight: bold;
   color: #c95192; /* Darker pink for labels */
+  display: block; /* Ensure labels are displayed as blocks */
+  margin-bottom: 5px;
 }
 
-input[type="email"],
-input[type="password"] {
-  width: 80%; /* Adjust width as needed */
+select {
   padding: 10px;
   border: 1px solid #c95192;
   border-radius: 5px;
+  width: 100%; /* Make select elements full width */
 }
 
 input[type="submit"] {
@@ -45,8 +40,7 @@ input[type="submit"] {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: 80%; /* Adjust width as needed */
-  margin-top: 10px;
+  width: 100%; /* Make submit button full width */
 }
 
 input[type="submit"]:hover {
@@ -56,7 +50,4 @@ input[type="submit"]:hover {
 a {
   color: #c95192; /* Pink for links */
   text-decoration: none;
-  text-align: center;
-  display: block;
-  margin-top: 10px;
 }

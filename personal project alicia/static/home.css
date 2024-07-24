@@ -1,0 +1,27 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f8c2ee; /* Soft pink */
+}
+
+
+.animal-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.animal-item {
+  margin: 20px;
+  width: 200px; /* Adjust width as needed */
+  text-align: center;
+}
+
+.adopt-button {
+  background-color: hotpink; /* Replace with your desired color */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

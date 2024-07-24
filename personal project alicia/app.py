@@ -63,21 +63,25 @@ def signin():
 
 @app.route('/save_preferences', methods=['POST', 'GET'])
 def save_preferences():
-    if request.method == 'POST':
-      if 'user' in session:
-        pets = request.form['pets']
-        age = request.form['age']
-        place = request.form['place']       
-        preferences = {
-            'pet_type': pets,
-            'age': age,
-            'place': place
-        }        
+  if request.method == 'POST':
+    if 'user' in session and session['user'] and 'localId' in session['user']:
+      pets = request.form['pets']
+      place = request.form['place']
+      preferences = {
+        'pet_type': pets,
+        'place': place
+      }
+
+      try:
         db.child("Users").child(session['user']["localId"]).child("preferences").set(preferences)
         return redirect(url_for('home'))
-      else:
-        return redirect(url_for('signin'))
-    return render_template('save_prefrence.html')
+      except Exception as e:
+        print(f"Error saving preferences: {e}")
+        return render_template('error.html', message='Error saving preferences')
+
+    else:
+      return redirect(url_for('signin'))
+  return render_template('save_prefrence.html')
 
 @app.route('/signout')
 def signout():
@@ -86,11 +90,25 @@ def signout():
 
 @app.route('/home', methods=['POST', 'GET'])
 def home():
-  animal = db.child('animals').get().val().values()
-  if request == 'POST':
+  if request.method == "GET":
+    animal = db.child('animals').get().val().values()
     prefer = db.child("Users").child(session['user']["localId"]).child("preferences").get().val()
-    preferred_location = preferences.get('place')
-  return render_template('home.html',animal=animal)
+    animals = []
+    places = []
+    for i in list(animal):    
+        if prefer['pet_type'] == i['type'] and prefer['place'] == i['place']:
+          animals.append(i)
+          places.append(i)
+    else:
+      selected = request.form['adopt']
+
+
+
+  return render_template('home.html',animal=animals,place=places)
+
+#@app.route('/adopted', methods=['POST','GET'])
+#def adopted():
+
 
 if __name__ == '__main__':
   app.run(debug=True)
