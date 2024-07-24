@@ -1,27 +1,66 @@
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background-color: #f8c2ee; /* Soft pink */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f8c2ee; /* Soft pink */
+    margin: 0;
+    padding: 20px;
 }
 
-
 .animal-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px; /* Adjust maximum width as needed */
+    margin: 0 auto;
 }
 
 .animal-item {
-  margin: 20px;
-  width: 200px; /* Adjust width as needed */
-  text-align: center;
+    margin: 20px;
+    width: 200px; /* Adjust width as needed */
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.animal-item h3 {
+    margin-bottom: 10px;
 }
 
 .adopt-button {
-  background-color: hotpink; /* Replace with your desired color */
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+    background-color: hotpink; /* Replace with your desired color */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.adopt-button:hover {
+    background-color: #ff0080; /* Darker pink on hover */
+}
+
+form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="text"], select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #f00;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
