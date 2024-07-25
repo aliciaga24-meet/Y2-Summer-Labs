@@ -1,23 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <style type="text/css">
-        body {
-            background-color: pink;
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
+/* adopted.css */
 
-        h1, h2 {
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-    </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    <h1>You adopted:</h1>
-    <h2>{{ animal }}</h2>
-</body>
-</html>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8c2ee; /* Light pink background */
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: #fff; /* White text */
+  font-size: 36px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+}
+
+h2 {
+  color: #ff69b4; /* Pink text */
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+a {
+  color: #fff; /* White link color */
+  text-decoration: none;
+  background-color: #ff69b4; /* Pink background for link */
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+a:hover {
+  background-color: #ff4585; /* Darker pink on hover */
+}
